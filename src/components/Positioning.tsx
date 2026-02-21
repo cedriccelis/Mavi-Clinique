@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { BRAND } from '../constants/brand';
 
 export function Positioning() {
   return (
@@ -25,9 +27,13 @@ export function Positioning() {
             <span>Doordacht.</span>
           </div>
 
-          <button className="group relative inline-flex items-center justify-center px-10 py-5 text-xs uppercase tracking-[0.2em] text-white bg-stone-900 overflow-hidden transition-all hover:bg-stone-800">
-            <span className="relative z-10 font-medium">Plan je Skin Strategy Consult</span>
-          </button>
+          <Link 
+            to="/consult"
+            onClick={() => console.log('Event: click_consult_cta')}
+            className="group relative inline-flex items-center justify-center px-10 py-5 text-xs uppercase tracking-[0.2em] text-white bg-stone-900 overflow-hidden transition-all hover:bg-stone-800"
+          >
+            <span className="relative z-10 font-medium">{BRAND.cta.main}</span>
+          </Link>
         </motion.div>
       </div>
     </section>

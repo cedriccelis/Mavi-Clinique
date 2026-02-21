@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 
 export function Authority() {
   return (
-    <section className="py-32 bg-white text-stone-900">
+    <section className="py-32 bg-mavi-primary text-mavi-depth">
       <div className="max-w-6xl mx-auto px-6 lg:px-8 text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -13,7 +13,7 @@ export function Authority() {
           className="text-4xl md:text-6xl lg:text-7xl font-serif leading-tight mb-20"
         >
           We do not offer facials.<br />
-          <span className="italic text-stone-400">We rebuild skin structure.</span>
+          <span className="italic text-mavi-accent">We rebuild skin structure.</span>
         </motion.h2>
 
         <motion.div 
@@ -27,17 +27,17 @@ export function Authority() {
             De meeste salons focussen op ontspanning.<br />
             <span className="font-medium mt-4 block">Wij focussen op huidarchitectuur.</span>
           </div>
-          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-12 text-sm uppercase tracking-widest font-medium text-stone-500">
+          <div className="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-12 text-sm uppercase tracking-widest font-medium text-mavi-depth/70">
             <ul className="space-y-6">
-              <li className="text-stone-900 flex items-center"><span className="w-4 h-[1px] bg-stone-900 mr-4" /> Contour.</li>
-              <li className="text-stone-900 flex items-center"><span className="w-4 h-[1px] bg-stone-900 mr-4" /> Collageen.</li>
-              <li className="text-stone-900 flex items-center"><span className="w-4 h-[1px] bg-stone-900 mr-4" /> Onderhoud.</li>
+              <li className="text-mavi-depth flex items-center"><span className="w-4 h-[1px] bg-mavi-accent mr-4" /> Contour.</li>
+              <li className="text-mavi-depth flex items-center"><span className="w-4 h-[1px] bg-mavi-accent mr-4" /> Collageen.</li>
+              <li className="text-mavi-depth flex items-center"><span className="w-4 h-[1px] bg-mavi-accent mr-4" /> Onderhoud.</li>
             </ul>
             <ul className="space-y-6">
               <li>Geen quick fixes.</li>
               <li>Geen oppervlakkige glow.</li>
               <li>Geen overcorrectie.</li>
-              <li className="text-stone-900 pt-6 border-t border-stone-200 mt-6">Alleen strategie.</li>
+              <li className="text-mavi-depth pt-6 border-t border-mavi-depth/20 mt-6">Alleen strategie.</li>
             </ul>
           </div>
         </motion.div>

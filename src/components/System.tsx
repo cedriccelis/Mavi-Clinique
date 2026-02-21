@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { BRAND } from '../constants/brand';
 
 const protocols = [
   {
@@ -7,21 +9,24 @@ const protocols = [
     title: "Contour Protocol",
     desc: "Voor verlies van definitie in:",
     list: ["Kaaklijn", "Onderkin", "Hals"],
-    footer: ["Niet-invasieve stimulatie.", "Natuurlijke lift.", "Geleidelijke opbouw."]
+    footer: ["Niet-invasieve stimulatie.", "Natuurlijke lift.", "Geleidelijke opbouw."],
+    cta: BRAND.cta.main
   },
   {
     num: "02",
     title: "Collagen Protocol",
     desc: "Voor huidversteviging en textuur.",
     list: ["Microneedling trajecten", "Collageenstimulatie", "Elastine-ondersteuning"],
-    footer: ["Geen losse sessies.", "Altijd een plan."]
+    footer: ["Geen losse sessies.", "Altijd een plan."],
+    cta: BRAND.cta.main
   },
   {
     num: "03",
     title: "Maintenance Protocol",
     desc: "Structureel onderhoud van huidkwaliteit.",
     list: ["Hydrafacial", "Diepte-reiniging", "Hydratatiebalans"],
-    footer: ["Glow is het gevolg.", "Structuur is de basis."]
+    footer: ["Glow is het gevolg.", "Structuur is de basis."],
+    cta: BRAND.cta.maintenance
   }
 ];
 
@@ -57,11 +62,19 @@ export function System() {
                 ))}
               </ul>
 
-              <div className="pt-8 border-t border-stone-300 space-y-3">
+              <div className="pt-8 border-t border-stone-300 space-y-3 mb-8">
                 {p.footer.map((f, j) => (
                   <p key={j} className="text-xs uppercase tracking-widest text-stone-500 font-medium">{f}</p>
                 ))}
               </div>
+
+              <Link 
+                to="/consult"
+                onClick={() => console.log('Event: click_consult_cta')}
+                className="inline-flex items-center text-xs uppercase tracking-widest text-stone-900 border-b border-stone-900 pb-1 hover:text-stone-500 hover:border-stone-500 transition-colors self-start mt-auto"
+              >
+                {p.cta}
+              </Link>
             </motion.div>
           ))}
         </div>
