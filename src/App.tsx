@@ -7,10 +7,10 @@ import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { Hero } from './components/Hero';
 import { Authority } from './components/Authority';
+import { Problem } from './components/Problem';
 import { System } from './components/System';
 import { TargetAudience } from './components/TargetAudience';
 import { Method } from './components/Method';
-import { Proof } from './components/Proof';
 import { FAQ } from './components/FAQ';
 import { Positioning } from './components/Positioning';
 import { Footer } from './components/Footer';
@@ -33,10 +33,10 @@ function Home() {
     <>
       <Hero />
       <Authority />
+      <Problem />
       <System />
-      <TargetAudience />
       <Method />
-      <Proof />
+      <TargetAudience />
       <FAQ />
       <Positioning />
       <Footer />

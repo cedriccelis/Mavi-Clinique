@@ -13,27 +13,29 @@ export function Positioning() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-serif leading-tight mb-16">
-            Mavi is voor vrouwen<br />
-            die hun gezicht willen versterken<br />
-            <span className="italic text-stone-500">zonder hun identiteit te veranderen.</span>
-          </h2>
+          <h2 className="text-xs uppercase tracking-[0.2em] font-medium text-stone-500 mb-8">Structure beats trends.</h2>
+          <p className="text-3xl md:text-5xl font-serif leading-tight mb-16 text-stone-400">
+            Je hoeft niet drastisch te veranderen<br />
+            om er sterker uit te zien.<br /><br />
+            <span className="text-stone-900">Je moet je huid leren ondersteunen<br />
+            in plaats van te camoufleren.</span><br /><br />
+            <span className="italic">Dat is wat we doen.</span>
+          </p>
 
-          <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12 text-sm uppercase tracking-[0.2em] font-medium text-stone-400 mb-24">
-            <span>Subtiel.</span>
-            <span className="hidden md:block w-1.5 h-1.5 bg-stone-300 rounded-full" />
-            <span>Gestructureerd.</span>
-            <span className="hidden md:block w-1.5 h-1.5 bg-stone-300 rounded-full" />
-            <span>Doordacht.</span>
+          <div className="mt-32 pt-32 border-t border-stone-300">
+            <h2 className="text-5xl md:text-7xl font-serif leading-tight mb-12">
+              Lift. Collagen. Confidence.
+            </h2>
+            
+            <Link 
+              to="/consult"
+              onClick={() => console.log('Event: click_consult_cta')}
+              className="group relative inline-flex flex-col items-center justify-center px-10 py-5 bg-stone-900 text-white transition-all hover:bg-stone-800"
+            >
+              <span className="text-sm uppercase tracking-[0.2em] font-bold mb-1">{BRAND.cta.main}</span>
+              <span className="text-[10px] uppercase tracking-widest text-stone-400">Beperkt aantal consultmomenten per week.</span>
+            </Link>
           </div>
-
-          <Link 
-            to="/consult"
-            onClick={() => console.log('Event: click_consult_cta')}
-            className="group relative inline-flex items-center justify-center px-10 py-5 text-xs uppercase tracking-[0.2em] text-white bg-stone-900 overflow-hidden transition-all hover:bg-stone-800"
-          >
-            <span className="relative z-10 font-medium">{BRAND.cta.main}</span>
-          </Link>
         </motion.div>
       </div>
     </section>
