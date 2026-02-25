@@ -1,27 +1,9 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import React from 'react';
+import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
-import { ChevronDown } from 'lucide-react';
 import { BRAND } from '../constants/brand';
 
-const faqs = [
-  {
-    q: "Is Hydrafacial voldoende als anti-aging?",
-    a: "Nee. Het ondersteunt, maar vervangt geen collageenstimulatie."
-  },
-  {
-    q: "Is er downtime?",
-    a: "Meestal niet. Huid kan tijdelijk licht rood zijn."
-  },
-  {
-    q: "Kan ik dit combineren met RF?",
-    a: "Ja, afhankelijk van je huidconditie plannen we dit strategisch."
-  }
-];
-
 export function MaintenanceProtocol() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
   return (
     <div className="bg-stone-50 min-h-screen pt-24">
       {/* HERO */}
@@ -42,36 +24,30 @@ export function MaintenanceProtocol() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-xs uppercase tracking-[0.3em] text-stone-400 font-medium mb-8">Maintenance Plan</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-stone-400 font-medium mb-8">Maintenance Protocol</p>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif tracking-tight leading-tight mb-8 text-white">
-              Structuur bouw je op.<br />
-              <span className="italic text-stone-400">Glow onderhoud je.</span>
+              Resultaat is geen eindpunt.<br />
+              <span className="italic text-stone-400">Het is een fase.</span>
             </h1>
             <p className="text-xl md:text-2xl font-light text-[#E8DDD4] mb-12 max-w-3xl mx-auto">
-              Het Maintenance Protocol houdt je huid in balans tussen contour- en collagen trajecten.
+              Na een huidtraject begint het behoud. Collageen wordt niet éénmalig aangemaakt. Het wordt continu afgebroken.
             </p>
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link 
-                to="/consult"
-                onClick={() => console.log('Event: click_booking')}
-                className="group relative inline-flex items-center justify-center px-10 py-5 bg-[#E8DDD4] text-stone-900 transition-all hover:bg-white w-full sm:w-auto"
-              >
-                <span className="text-sm uppercase tracking-[0.2em] font-bold">{BRAND.cta.maintenance}</span>
-              </Link>
-              <Link 
-                to="/consult"
-                onClick={() => console.log('Event: click_consult_cta')}
-                className="group relative inline-flex items-center justify-center px-10 py-5 border border-[#E8DDD4] text-[#E8DDD4] transition-all hover:bg-[#E8DDD4] hover:text-stone-900 w-full sm:w-auto"
-              >
-                <span className="text-sm uppercase tracking-[0.2em] font-bold">{BRAND.cta.main}</span>
-              </Link>
+            <div className="space-y-2 text-sm uppercase tracking-widest font-medium text-stone-400 mb-12">
+              <p>Niet opnieuw starten.</p>
+              <p>Wel beschermen wat is opgebouwd.</p>
             </div>
+            
+            <Link 
+              to="/consult"
+              className="group relative inline-flex flex-col items-center justify-center px-10 py-5 bg-[#E8DDD4] text-stone-900 transition-all hover:bg-white"
+            >
+              <span className="text-sm uppercase tracking-[0.2em] font-bold">Plan je Skin Strategy Consult</span>
+            </Link>
           </motion.div>
         </div>
       </section>
 
-      {/* SECTION 1 - WAAROM MAINTENANCE? */}
+      {/* SECTION 1 - WAAROM ONDERHOUD NOODZAKELIJK IS */}
       <section className="py-32 bg-white text-stone-900">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -81,20 +57,18 @@ export function MaintenanceProtocol() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <h2 className="text-4xl md:text-5xl font-serif leading-tight mb-8">
-                Waarom Maintenance?
+              <h2 className="text-4xl md:text-5xl font-serif leading-tight mb-12">
+                Waarom onderhoud<br />
+                <span className="italic text-stone-400">noodzakelijk is</span>
               </h2>
               <p className="text-xl font-light text-stone-600 mb-8">
-                Huidveroudering stopt niet na één traject.
+                Na een Contour, Collagen Reset of Structural Renewal traject heeft je huid:
               </p>
-              <p className="text-lg font-light text-stone-800 mb-6">
-                Zelfs wanneer contour en collageen verbeteren, blijft de huid:
-              </p>
-              <ul className="space-y-4 text-lg font-light border-l border-stone-200 pl-8 mb-8">
-                <li>Blootgesteld aan stress</li>
-                <li>Onderhevig aan hormonale schommelingen</li>
-                <li>Gevoelig voor uitdroging</li>
-                <li>Vatbaar voor verstopping</li>
+              <ul className="space-y-6 text-lg font-light border-l border-stone-200 pl-8 mb-12">
+                <li>Meer spanning</li>
+                <li>Betere densiteit</li>
+                <li>Verbeterde textuur</li>
+                <li>Actieve collageenaanmaak</li>
               </ul>
             </motion.div>
             <motion.div
@@ -104,172 +78,210 @@ export function MaintenanceProtocol() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="bg-stone-50 p-12 border border-stone-100"
             >
-              <p className="text-3xl font-serif italic text-stone-900 mb-6">
-                Maintenance is geen luxe.
+              <p className="text-xl font-light text-stone-600 mb-8">
+                Zonder onderhoud:
               </p>
-              <p className="text-2xl font-light text-stone-600 pt-6 border-t border-stone-200">
-                Het is stabilisatie.
+              <ul className="space-y-4 text-lg font-light text-stone-800 mb-8">
+                <li className="flex items-start"><span className="text-stone-400 mr-4">—</span> Daalt collageenactiviteit opnieuw</li>
+                <li className="flex items-start"><span className="text-stone-400 mr-4">—</span> Verslapt de huid geleidelijk</li>
+                <li className="flex items-start"><span className="text-stone-400 mr-4">—</span> Vermindert de houdbaarheid van je resultaat</li>
+              </ul>
+              <p className="text-3xl font-serif italic text-stone-900 pt-8 border-t border-stone-200">
+                Maintenance voorkomt terugval.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 2 - WAT IS HET MAINTENANCE PROTOCOL? */}
+      {/* SECTION 2 - HOE WIJ MAINTENANCE AANPAKKEN */}
       <section className="py-32 bg-[#E8DDD4] text-stone-900">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            <h2 className="text-xs uppercase tracking-[0.2em] font-medium text-stone-600 mb-6">Wat is het Maintenance Protocol?</h2>
-            <p className="text-3xl md:text-4xl font-light leading-relaxed mb-12">
-              Het Maintenance Protocol is onze systematische aanpak om huidkwaliteit te behouden en versterken.
-            </p>
-            <p className="text-lg font-medium text-stone-800 mb-8 uppercase tracking-widest">We focussen op:</p>
-            <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 text-sm uppercase tracking-widest font-medium text-stone-700 mb-12">
-              <span>Diepe reiniging</span>
-              <span className="hidden md:block w-1.5 h-1.5 bg-stone-500 rounded-full" />
-              <span>Milde exfoliatie</span>
-              <span className="hidden md:block w-1.5 h-1.5 bg-stone-500 rounded-full" />
-              <span>Hydratatiebalans</span>
-              <span className="hidden md:block w-1.5 h-1.5 bg-stone-500 rounded-full" />
-              <span>Huidbarrière</span>
-            </div>
-            <p className="text-xl font-serif italic text-stone-900 pt-8 border-t border-stone-400/30">
-              Dit gebeurt via onze geavanceerde Hydrafacial techniek.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 3 - HOE HET WERKT */}
-      <section className="py-32 bg-white text-stone-900">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-serif">Hoe het werkt</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {[
-              { step: "Stap 1", title: "Reiniging & Exfoliatie", desc: "Verwijderen van dode huidcellen en onzuiverheden." },
-              { step: "Stap 2", title: "Extractie", desc: "Gecontroleerde verwijdering van verstoppingen." },
-              { step: "Stap 3", title: "Hydratatie", desc: "Infusie van actieve ingrediënten aangepast aan huidconditie." },
-              { step: "Stap 4", title: "Bescherming", desc: "Afsluiten met kalmerende en beschermende producten." }
-            ].map((s, i) => (
-              <motion.div
-                key={s.step}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: i * 0.1 }}
-                className="p-8 border border-stone-200 bg-stone-50 flex flex-col"
-              >
-                <p className="text-xs uppercase tracking-[0.2em] text-stone-400 font-medium mb-4">{s.step}</p>
-                <h3 className="text-xl font-serif mb-4">{s.title}</h3>
-                <p className="text-stone-600 font-light">{s.desc}</p>
-              </motion.div>
-            ))}
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="text-center mb-24">
+            <h2 className="text-xs uppercase tracking-[0.2em] font-medium text-stone-600 mb-6">Hoe wij Maintenance aanpakken</h2>
+            <p className="text-4xl md:text-5xl font-serif mb-8">Wij werken in lagen.</p>
+            <p className="text-xl font-light text-stone-700">Elke behandeling heeft een duidelijke rol.</p>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="max-w-3xl mx-auto bg-stone-900 text-white p-12 text-center"
-          >
-            <h3 className="text-xs uppercase tracking-[0.2em] text-stone-400 font-medium mb-8">Resultaat</h3>
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-lg font-light text-stone-300 text-left">
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-[#E8DDD4] rounded-full mr-4" /> Frissere uitstraling</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-[#E8DDD4] rounded-full mr-4" /> Betere opname van actieve stoffen</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-[#E8DDD4] rounded-full mr-4" /> Ondersteuning van collageenopbouw</li>
-              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-[#E8DDD4] rounded-full mr-4" /> Verbeterde huidbalans</li>
-            </ul>
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            {/* 1. Huidconditie */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              className="bg-white p-10 shadow-xl shadow-stone-900/5 flex flex-col"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-stone-400 font-medium mb-6">1. Huidconditie</p>
+              <h3 className="text-2xl font-serif mb-4">Hydrafacial</h3>
+              <p className="text-stone-600 font-light mb-8 flex-grow">Vormt de basis van elk onderhoudsplan. Het zorgt voor diepe reiniging, verwijdering van dode huidcellen, hydratatie en verbeterde opname van actieve ingrediënten.</p>
+              <div className="pt-6 border-t border-stone-200">
+                <p className="text-sm font-medium text-stone-900">Een gezonde huidbarrière zorgt ervoor dat structurele stimulatie beter behouden blijft.</p>
+              </div>
+            </motion.div>
+
+            {/* 2. Collageenonderhoud */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="bg-white p-10 shadow-xl shadow-stone-900/5 flex flex-col"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-stone-400 font-medium mb-6">2. Collageenonderhoud</p>
+              <h3 className="text-2xl font-serif mb-4">Microneedling</h3>
+              <p className="text-stone-600 font-light mb-8 flex-grow">Wordt ingezet wanneer huiddensiteit opnieuw begint af te nemen, textuur verfijning nodig heeft of collageenactiviteit opnieuw gestimuleerd moet worden.</p>
+              <div className="pt-6 border-t border-stone-200">
+                <p className="text-sm font-medium text-stone-900">Niet in kuurvorm, maar strategisch en periodiek. Houdt de huid compact.</p>
+              </div>
+            </motion.div>
+
+            {/* 3. Versteviging */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="bg-white p-10 shadow-xl shadow-stone-900/5 flex flex-col"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-stone-400 font-medium mb-6">3. Versteviging</p>
+              <h3 className="text-2xl font-serif mb-4">Monopolaire RF</h3>
+              <p className="text-stone-600 font-light mb-8 flex-grow">Wordt gebruikt om huidspanning actief te houden, lichte laxiteit te corrigeren en de dermis warm te stimuleren.</p>
+              <div className="pt-6 border-t border-stone-200">
+                <p className="text-sm font-medium text-stone-900">Onderhoud van structuur, geen vervanging van HIFU. Werkt subtiel maar effectief.</p>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* 4. Hersteloptimalisatie */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="bg-white p-10 shadow-xl shadow-stone-900/5 flex flex-col"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-stone-400 font-medium mb-6">4. Hersteloptimalisatie</p>
+              <h3 className="text-2xl font-serif mb-4">LED Therapy</h3>
+              <p className="text-stone-600 font-light mb-8 flex-grow">Ingezet na RF, na Microneedling of als collageenbooster. Helpt bij het reguleren van inflammatie, versnellen van herstel en ondersteunen van fibroblastactiviteit.</p>
+              <div className="pt-6 border-t border-stone-200">
+                <p className="text-sm font-medium text-stone-900">LED versterkt de respons van andere behandelingen.</p>
+              </div>
+            </motion.div>
+
+            {/* 5. Structurele heractivatie */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              className="bg-white p-10 shadow-xl shadow-stone-900/5 flex flex-col"
+            >
+              <p className="text-xs uppercase tracking-[0.2em] text-stone-400 font-medium mb-6">5. Structurele heractivatie</p>
+              <h3 className="text-2xl font-serif mb-4">HIFU Touch-up</h3>
+              <p className="text-stone-600 font-light mb-8 flex-grow">Wanneer diepere spanning vermindert, kan een gerichte HIFU-touch-up nodig zijn. Dit gebeurt meestal na 9–12 maanden.</p>
+              <div className="pt-6 border-t border-stone-200">
+                <p className="text-sm font-medium text-stone-900">Niet automatisch. Wel wanneer analyse dit aantoont.</p>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* SECTION 4 - VOOR WIE */}
-      <section className="py-32 bg-stone-900 text-stone-50">
-        <div className="max-w-5xl mx-auto px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-serif mb-12">Voor wie is dit geschikt?</h2>
-            <p className="text-xl font-light text-stone-400 mb-12">Het Maintenance Protocol is ideaal voor:</p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 text-left max-w-3xl mx-auto mb-20">
-              <div className="flex items-start"><span className="text-stone-500 mr-4">—</span> Vrouwen in een Collagen of Contour traject</div>
-              <div className="flex items-start"><span className="text-stone-500 mr-4">—</span> Huid die snel uitdroogt</div>
-              <div className="flex items-start"><span className="text-stone-500 mr-4">—</span> Onzuiverheden of verstoppingen</div>
-              <div className="flex items-start"><span className="text-stone-500 mr-4">—</span> Wie consistent verzorgd wil ogen</div>
-              <div className="flex items-start"><span className="text-stone-500 mr-4">—</span> Wie huidveroudering wil vertragen</div>
-            </div>
-
-            <div className="inline-block border border-stone-700 bg-stone-800/50 px-8 py-6">
-              <p className="text-[#E8DDD4] font-serif italic text-2xl">
-                Niet bedoeld als vervanging voor structurele stimulatie.
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 5 & 6 - FREQUENTIE & ESSENTIEEL IN SYSTEEM */}
+      {/* SECTION 3 - HOE BEPALEN WE JOUW RITME? */}
       <section className="py-32 bg-stone-100 text-stone-900">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="flex flex-col justify-center"
             >
-              <h2 className="text-3xl font-serif mb-8">Frequentie</h2>
-              <p className="text-xl font-light text-stone-800 mb-6">Gemiddeld elke 4–6 weken.</p>
-              <p className="text-lg font-light text-stone-600 mb-8">Bij intensieve trajecten kan dit tijdelijk frequenter zijn.</p>
-              <p className="text-2xl font-serif italic text-stone-900 pt-8 border-t border-stone-300">
-                Consistency bepaalt resultaat.
+              <h2 className="text-4xl md:text-5xl font-serif leading-tight mb-8">
+                Hoe bepalen we jouw<br />
+                <span className="italic text-stone-400">onderhoudsritme?</span>
+              </h2>
+              <p className="text-xl font-light text-stone-600 mb-8">
+                Maintenance is persoonlijk. We evalueren:
+              </p>
+              <ul className="space-y-4 text-lg font-light border-l border-stone-300 pl-8 mb-12">
+                <li>Huiddikte</li>
+                <li>Elasticiteit</li>
+                <li>Leeftijd</li>
+                <li>Reactie op eerdere stimulatie</li>
+                <li>Doelstelling</li>
+              </ul>
+              <p className="text-lg font-medium text-stone-900">
+                Op basis daarvan stellen we een onderhoudsplan op.
               </p>
             </motion.div>
-
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="bg-white p-12 shadow-xl shadow-stone-200/50 border border-stone-200"
+              className="bg-white p-12 shadow-sm border border-stone-200 text-center"
             >
-              <h2 className="text-2xl font-serif mb-8">Waarom dit essentieel is in ons systeem</h2>
-              <div className="space-y-4 text-lg font-light text-stone-800 mb-10">
-                <p><span className="font-medium">Contour</span> bouwt structuur.</p>
-                <p><span className="font-medium">Collagen</span> bouwt densiteit.</p>
-                <p><span className="font-medium">Maintenance</span> bewaakt kwaliteit.</p>
+              <div className="space-y-6 text-2xl font-light text-stone-600 mb-8">
+                <p>Geen vaste pakketten.</p>
+                <p>Geen standaard schema's.</p>
               </div>
-              <p className="text-sm uppercase tracking-widest font-medium text-stone-500 mb-6">Zonder maintenance:</p>
-              <ul className="space-y-3 text-stone-600 font-light mb-10">
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-400 rounded-full mr-4" /> Verliest huid sneller balans</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-400 rounded-full mr-4" /> Wordt herstel trager</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-400 rounded-full mr-4" /> Vermindert effect van stimulatie</li>
-              </ul>
-              <p className="text-xl font-serif italic text-stone-900 pt-8 border-t border-stone-200">
-                Glow is het gevolg van discipline.
+              <p className="text-3xl font-serif italic text-stone-900 pt-8 border-t border-stone-200">
+                Wel begeleiding.
               </p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 7 - MEMBERSHIP OPTIE */}
-      <section className="py-32 bg-[#E8DDD4] text-stone-900">
+      {/* SECTION 4 - WAT MAG JE VERWACHTEN & VOOR WIE */}
+      <section className="py-32 bg-white text-stone-900">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-serif mb-12">Wat mag je verwachten?</h2>
+              <p className="text-lg font-light text-stone-600 mb-8">Maintenance zorgt voor:</p>
+              <ul className="space-y-6 text-lg font-light text-stone-800 mb-12">
+                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-900 rounded-full mr-4" /> Langere houdbaarheid van contour</li>
+                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-900 rounded-full mr-4" /> Stabiele huiddensiteit</li>
+                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-900 rounded-full mr-4" /> Betere textuur</li>
+                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-900 rounded-full mr-4" /> Minder snelle terugval</li>
+                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-900 rounded-full mr-4" /> Vertraagde zichtbare veroudering</li>
+              </ul>
+              <div className="p-6 bg-stone-50 border border-stone-100">
+                <p className="text-lg font-medium text-stone-900">Het geeft geen drastische verandering.</p>
+                <p className="text-lg font-serif italic text-stone-600 mt-2">Het voorkomt achteruitgang.</p>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-serif mb-12">Voor wie is dit bedoeld?</h2>
+              <p className="text-lg font-light text-stone-600 mb-8">Voor vrouwen die:</p>
+              <ul className="space-y-6 text-lg font-light text-stone-800 mb-12">
+                <li className="flex items-start"><span className="text-stone-400 mr-4">—</span> Hun investering willen beschermen</li>
+                <li className="flex items-start"><span className="text-stone-400 mr-4">—</span> Preventief willen werken</li>
+                <li className="flex items-start"><span className="text-stone-400 mr-4">—</span> Begrijpen dat huidveroudering een proces is</li>
+                <li className="flex items-start"><span className="text-stone-400 mr-4">—</span> Lange termijn belangrijker vinden dan snelle resultaten</li>
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 5 - WAAROM MAVI MAINTENANCE ANDERS IS */}
+      <section className="py-32 bg-stone-50 text-stone-900">
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -277,69 +289,19 @@ export function MaintenanceProtocol() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-xs uppercase tracking-[0.2em] font-medium text-stone-600 mb-6">Membership Optie</h2>
-            <p className="text-3xl md:text-4xl font-serif mb-12">
-              Voor wie structureel wil onderhouden bieden we een Maintenance Membership.
-            </p>
-            
-            <div className="bg-white p-12 text-left max-w-2xl mx-auto shadow-xl shadow-stone-900/5 mb-12">
-              <p className="text-sm uppercase tracking-widest font-medium text-stone-500 mb-8">Voordelen:</p>
-              <ul className="space-y-6 text-lg font-light text-stone-800">
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-900 rounded-full mr-6" /> Gereserveerde momenten in agenda</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-900 rounded-full mr-6" /> Lagere sessieprijs</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-900 rounded-full mr-6" /> Prioritaire opvolging</li>
-                <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-900 rounded-full mr-6" /> RF add-on mogelijkheid</li>
-              </ul>
-            </div>
-
-            <div className="text-2xl font-light text-stone-800">
-              <p>Maintenance wordt routine.</p>
-              <p className="font-serif italic mt-2">Geen losse boeking.</p>
+            <h2 className="text-4xl md:text-5xl font-serif mb-16">Waarom Mavi Maintenance anders is</h2>
+            <p className="text-xl font-light text-stone-500 mb-12">Wij:</p>
+            <ul className="space-y-6 text-lg font-light text-stone-800 max-w-xl mx-auto text-left mb-16">
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-400 rounded-full mr-6" /> Overbehandelen niet</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-400 rounded-full mr-6" /> Werken niet met vaste onderhoudspakketten</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-400 rounded-full mr-6" /> Evalueren structureel</li>
+              <li className="flex items-center"><span className="w-1.5 h-1.5 bg-stone-400 rounded-full mr-6" /> Denken in fases</li>
+            </ul>
+            <div className="text-3xl font-serif italic text-stone-400">
+              <p>Maintenance is geen herhaling.</p>
+              <p>Het is strategische begeleiding.</p>
             </div>
           </motion.div>
-        </div>
-      </section>
-
-      {/* SECTION 8 - FAQ */}
-      <section className="py-32 bg-white text-stone-900">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-serif">Veelgestelde vragen</h2>
-          </div>
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <div key={idx} className="border-b border-stone-200">
-                <button
-                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full py-6 flex items-center justify-between text-left group"
-                >
-                  <h3 className="text-lg md:text-xl font-serif text-stone-800 group-hover:text-stone-500 transition-colors pr-8">
-                    {faq.q}
-                  </h3>
-                  <ChevronDown 
-                    className={`w-5 h-5 text-stone-400 transition-transform duration-300 flex-shrink-0 ${
-                      openFaq === idx ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-                <AnimatePresence>
-                  {openFaq === idx && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <p className="pb-6 text-stone-600 font-light leading-relaxed">
-                        {faq.a}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -352,27 +314,18 @@ export function MaintenanceProtocol() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
+            <p className="text-xs uppercase tracking-[0.3em] text-stone-400 font-medium mb-8">Plan je evaluatie</p>
             <h2 className="text-5xl md:text-7xl font-serif leading-tight mb-16">
-              Consistentie is sterker<br />
-              <span className="italic text-stone-400">dan intensiteit.</span>
+              Wil je weten waar jouw<br />
+              <span className="italic text-stone-400">huid nu staat?</span>
             </h2>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-              <Link 
-                to="/consult"
-                onClick={() => console.log('Event: click_booking')}
-                className="group relative inline-flex items-center justify-center px-10 py-5 bg-[#E8DDD4] text-stone-900 transition-all hover:bg-white w-full sm:w-auto"
-              >
-                <span className="text-sm uppercase tracking-[0.2em] font-bold">{BRAND.cta.maintenance}</span>
-              </Link>
-              <span className="text-stone-500 italic font-serif">Of</span>
-              <Link 
-                to="/consult"
-                onClick={() => console.log('Event: click_consult_cta')}
-                className="group relative inline-flex items-center justify-center px-10 py-5 border border-stone-700 text-white transition-all hover:bg-stone-800 w-full sm:w-auto"
-              >
-                <span className="text-sm uppercase tracking-[0.2em] font-bold">{BRAND.cta.main}</span>
-              </Link>
-            </div>
+            <Link 
+              to="/consult"
+              className="group relative inline-flex flex-col items-center justify-center px-12 py-6 bg-[#E8DDD4] text-stone-900 transition-all hover:bg-white"
+            >
+              <span className="text-sm uppercase tracking-[0.2em] font-bold mb-1">Plan je Skin Strategy Consult</span>
+              <span className="text-[10px] uppercase tracking-widest opacity-70">We bepalen samen jouw onderhoudsritme</span>
+            </Link>
           </motion.div>
         </div>
       </section>

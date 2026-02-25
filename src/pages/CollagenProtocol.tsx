@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { BRAND } from '../constants/brand';
+import { ImageComparison, ImageComparisonImage, ImageComparisonSlider } from '@/components/ui/image-comparison';
 
 const testimonials = [
   {
@@ -21,15 +22,18 @@ const testimonials = [
 
 const results = [
   {
-    image: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=2070&auto=format&fit=crop",
+    beforeImage: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=2070&auto=format&fit=crop",
+    afterImage: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=2070&auto=format&fit=crop",
     caption: "Resultaat na 3 sessies Collagen Reset. Gefaseerde aanpak. Geen injectables."
   },
   {
-    image: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=2070&auto=format&fit=crop",
+    beforeImage: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=2070&auto=format&fit=crop",
+    afterImage: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=2070&auto=format&fit=crop",
     caption: "Resultaat na 3 sessies Collagen Reset. Gefaseerde aanpak. Geen injectables."
   },
   {
-    image: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop",
+    beforeImage: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop",
+    afterImage: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop",
     caption: "Resultaat na 3 sessies Collagen Reset. Gefaseerde aanpak. Geen injectables."
   }
 ];
@@ -337,17 +341,31 @@ export function CollagenProtocol() {
           <div className="relative max-w-3xl mx-auto">
             <div className="aspect-[4/3] overflow-hidden bg-stone-100 relative">
               <AnimatePresence mode="wait">
-                <motion.img
+                <motion.div
                   key={currentResult}
-                  src={results[currentResult].image}
-                  alt="Resultaat Collagen Reset"
-                  className="w-full h-full object-cover grayscale"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
-                  referrerPolicy="no-referrer"
-                />
+                  className="absolute inset-0"
+                >
+                  <ImageComparison className="w-full h-full" enableHover>
+                    <ImageComparisonImage
+                      src={results[currentResult].beforeImage}
+                      className="grayscale"
+                      alt="Voor"
+                      position="left"
+                    />
+                    <ImageComparisonImage
+                      src={results[currentResult].afterImage}
+                      alt="Na"
+                      position="right"
+                    />
+                    <ImageComparisonSlider className="w-0.5 bg-white/50 backdrop-blur-xs">
+                      <div className="absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-sm"></div>
+                    </ImageComparisonSlider>
+                  </ImageComparison>
+                </motion.div>
               </AnimatePresence>
             </div>
             
