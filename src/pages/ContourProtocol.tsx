@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BRAND } from '../constants/brand';
-import { ImageComparison, ImageComparisonImage, ImageComparisonSlider } from '@/components/ui/image-comparison';
+import { ImageComparison } from '@/components/ui/image-comparison-slider';
 
 const testimonials = [
   {
@@ -22,19 +22,19 @@ const testimonials = [
 
 const results = [
   {
-    beforeImage: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop",
-    afterImage: "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=2070&auto=format&fit=crop",
-    caption: "Resultaat na 12 weken – Contour Protocol. Geen fillers. Gefaseerde aanpak."
+    beforeImage: "https://images.unsplash.com/photo-1620331311520-246422ff83f9?q=80&w=2070&auto=format&fit=crop",
+    afterImage: "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop",
+    caption: "Resultaat na 12 weken – Contour Protocol. Focus op kaaklijn en halsversteviging."
   },
   {
-    beforeImage: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=2070&auto=format&fit=crop",
-    afterImage: "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=2070&auto=format&fit=crop",
-    caption: "Resultaat na 12 weken – Contour Protocol. Geen fillers. Gefaseerde aanpak."
+    beforeImage: "https://images.unsplash.com/photo-1596755389378-c31d21fd1273?q=80&w=2070&auto=format&fit=crop",
+    afterImage: "https://images.unsplash.com/photo-1598550874175-4d0fe4a2c90b?q=80&w=2070&auto=format&fit=crop",
+    caption: "Resultaat na 12 weken – Contour Protocol. Verbeterde definitie van de kin-hals hoek."
   },
   {
-    beforeImage: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=2070&auto=format&fit=crop",
-    afterImage: "https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?q=80&w=2070&auto=format&fit=crop",
-    caption: "Resultaat na 12 weken – Contour Protocol. Geen fillers. Gefaseerde aanpak."
+    beforeImage: "https://images.unsplash.com/photo-1509967419530-da38b4704bc6?q=80&w=2070&auto=format&fit=crop",
+    afterImage: "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?q=80&w=2070&auto=format&fit=crop",
+    caption: "Resultaat na 12 weken – Contour Protocol. Natuurlijke lifting van de onderste gezichtshelft."
   }
 ];
 
@@ -325,7 +325,7 @@ export function ContourProtocol() {
           </div>
           
           <div className="relative max-w-3xl mx-auto">
-            <div className="aspect-[4/3] overflow-hidden bg-stone-100 relative">
+            <div className="aspect-[4/3] overflow-hidden bg-stone-100 relative rounded-xl shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentResult}
@@ -335,22 +335,12 @@ export function ContourProtocol() {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0"
                 >
-                  <ImageComparison className="w-full h-full" enableHover>
-                    <ImageComparisonImage
-                      src={results[currentResult].beforeImage}
-                      className="grayscale"
-                      alt="Voor"
-                      position="left"
-                    />
-                    <ImageComparisonImage
-                      src={results[currentResult].afterImage}
-                      alt="Na"
-                      position="right"
-                    />
-                    <ImageComparisonSlider className="w-0.5 bg-white/50 backdrop-blur-xs">
-                      <div className="absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-sm"></div>
-                    </ImageComparisonSlider>
-                  </ImageComparison>
+                  <ImageComparison 
+                    beforeImage={results[currentResult].beforeImage}
+                    afterImage={results[currentResult].afterImage}
+                    altBefore="Voor behandeling"
+                    altAfter="Na behandeling"
+                  />
                 </motion.div>
               </AnimatePresence>
             </div>

@@ -44,6 +44,7 @@ export function Navigation() {
   const mainLinks = [
     { name: 'Skin Analysis', path: '/analysis' },
     { name: 'Laser Program', path: '/laser' },
+    { name: 'Prijslijst', path: '/pricing' },
   ];
 
   const secondaryLinks = [

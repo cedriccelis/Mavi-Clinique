@@ -47,6 +47,7 @@ export function Footer() {
           <div className="flex flex-col space-y-6">
             <h4 className="text-xs font-medium uppercase tracking-widest text-white">Explore</h4>
             <ul className="space-y-4 text-sm font-light text-stone-400">
+              <li><Link to="/pricing" className="hover:text-white transition-colors">Prijslijst</Link></li>
               <li><Link to="/about" className="hover:text-white transition-colors">Over Mavi</Link></li>
               <li><Link to="/beauty" className="hover:text-white transition-colors">Beauty Services (Nagels, Brows)</Link></li>
               <li><a href="#" className="hover:text-white transition-colors">Instagram</a></li>

@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { BRAND } from '../constants/brand';
-import { ImageComparison, ImageComparisonImage, ImageComparisonSlider } from '@/components/ui/image-comparison';
+import { ImageComparison } from '@/components/ui/image-comparison-slider';
 
 const testimonials = [
   {
@@ -349,7 +349,7 @@ export function StructuralRenewalProgram() {
           </div>
           
           <div className="relative max-w-3xl mx-auto">
-            <div className="aspect-[4/3] overflow-hidden bg-stone-100 relative">
+            <div className="aspect-[4/3] overflow-hidden bg-stone-100 relative rounded-xl shadow-2xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentResult}
@@ -359,22 +359,12 @@ export function StructuralRenewalProgram() {
                   transition={{ duration: 0.5 }}
                   className="absolute inset-0"
                 >
-                  <ImageComparison className="w-full h-full" enableHover>
-                    <ImageComparisonImage
-                      src={results[currentResult].beforeImage}
-                      className="grayscale"
-                      alt="Voor"
-                      position="left"
-                    />
-                    <ImageComparisonImage
-                      src={results[currentResult].afterImage}
-                      alt="Na"
-                      position="right"
-                    />
-                    <ImageComparisonSlider className="w-0.5 bg-white/50 backdrop-blur-xs">
-                      <div className="absolute top-1/2 left-1/2 size-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow-sm"></div>
-                    </ImageComparisonSlider>
-                  </ImageComparison>
+                  <ImageComparison 
+                    beforeImage={results[currentResult].beforeImage}
+                    afterImage={results[currentResult].afterImage}
+                    altBefore="Voor behandeling"
+                    altAfter="Na behandeling"
+                  />
                 </motion.div>
               </AnimatePresence>
             </div>

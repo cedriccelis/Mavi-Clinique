@@ -31,6 +31,7 @@ import { LEDTherapy } from './pages/LEDTherapy';
 import { Dermaplaning } from './pages/Dermaplaning';
 import { About } from './pages/About';
 import { Contact } from './pages/Contact';
+import { Pricing } from './pages/Pricing';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -83,6 +84,7 @@ function AppContent() {
         <Route path="/beauty/pedicure" element={<Pedicure />} />
         <Route path="/beauty/brows" element={<Brows />} />
         <Route path="/beauty/waxing" element={<Waxing />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
